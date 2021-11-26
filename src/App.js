@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import Navigation from './components/Navigation'
@@ -13,12 +13,12 @@ function App() {
       <Router>
         <Navigation />
           <div className="container p-4">
-        <Routes>
-            <Route path="/" exact element={<NoteList />} />
-            <Route path="/edit/:id" element={<CreateNote />} />
-            <Route path="/create" element={<CreateNote />} />
-            <Route path="/user" element={<CreateUser />} />
-        </Routes>
+        <Switch>
+            <Route path="/" exact component={NoteList} />
+            <Route path="/edit/:id" component={CreateNote} />
+            <Route path="/create" component={CreateNote} />
+            <Route path="/user" component={CreateUser} />
+        </Switch>
           </div>
       </Router>
     </div>

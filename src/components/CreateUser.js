@@ -15,8 +15,7 @@ export default class CreateUser extends Component {
     
     getUsers = async () => {
         const res = await axios.get('http://localhost:3030/api/users')
-        this.setState({users:res.data})
-        console.log(this.state.users)
+        this.setState({users: res.data})
     }
 
     onChangeUsername = (e) => {
@@ -24,13 +23,14 @@ export default class CreateUser extends Component {
             username: e.target.value
         })
     }
+
     onSubmit = async (e) => {
         e.preventDefault()
         await axios.post('http://localhost:3030/api/users', {
             username: this.state.username
         })
         //con esto limpiamos los datos
-        this.state.username = ''
+        this.setState({username: ''})
         //Con esto hacemos que se muestren los usuarios automaticamente
         this.getUsers()
     }

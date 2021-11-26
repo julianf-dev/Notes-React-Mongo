@@ -14,14 +14,9 @@ useCtrl.createUsers = (async (req, res) => {
     res.json({message: 'User saved'})
 })
 
-useCtrl.getUser =  (async (req,res) => {
-    const user = await User.findById(req.params.id);
-    res.json(user)
-})
-
 useCtrl.deleteUser  = (async (req,res) => {
-    const user = await User.findOneAndDelete(req.params.id);
-    res.json({message:'User deleted'})
+    const user = await User.findByIdAndDelete(req.params.id);
+    res.json({message:`User deleted: ${req.params.id}`})
 })
 
 module.exports = useCtrl

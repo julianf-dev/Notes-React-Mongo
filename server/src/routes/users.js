@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getUsers, getUser, deleteUser, createUsers } = require('../controllers/users.controller')
+const { getUsers, deleteUser, createUsers } = require('../controllers/users.controller')
 
 router.route('/')
     .get(getUsers)
@@ -8,7 +8,6 @@ router.route('/')
 
 router.route('/:id')
 
-    .get(getUser)
     .delete(deleteUser)
 
 
