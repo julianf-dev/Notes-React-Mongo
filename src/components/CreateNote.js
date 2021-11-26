@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { Component } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-
 export default class CreateNote extends Component {
 
     state = {
@@ -12,7 +11,8 @@ export default class CreateNote extends Component {
         content: '',
         date: new Date(),
         editing: false,
-        _id : ''
+        _id : '',
+        isEdit: false
     }
 
     async componentDidMount(){
@@ -23,14 +23,14 @@ export default class CreateNote extends Component {
         })
         if(this.props.match.params.id){
             const res = await axios.get('http://localhost:3030/api/notes/'+ this.props.match.params.id)
-            console.log(res.data)
             this.setState({
                 title: res.data.title,
                 content: res.data.content,
                 date: new Date(res.data.date),
-                author: res.data.author,
+                userSelected: res.data.author,
                 editing: true,
-                _id: this.props.match.params.id
+                _id: this.props.match.params.id,
+                isEdit: true
             })
         }
     }
@@ -39,7 +39,7 @@ export default class CreateNote extends Component {
         e.preventDefault()
         const newNote = {
             title: this.state.title,
-            content : this.state.title,
+            content : this.state.content,
             date: this.state.date,
             author: this.state.userSelected
         };
@@ -48,7 +48,7 @@ export default class CreateNote extends Component {
         }else{
             await axios.post('http://localhost:3030/api/notes', newNote)
         } 
-        window.location.href = '/'
+        this.props.history.push('/');
     }
 
     onInputChange = e => {
@@ -65,14 +65,14 @@ export default class CreateNote extends Component {
         return (
             <div className="col-md-6 offset-md-3">
                 <div className="card card-body">
-                    <h4>Create Note</h4>
+                    <h4>{this.state.isEdit ? "Edit note" : "Create note"}</h4>
                         {/** SELECT USER (para un proyecto en produccion se puede tener el usuario en una cookie*/}
                         <div className="form-group mb-3">
                             <select
+                                value={this.state.userSelected}
                                 className="form-control"
                                 name="userSelected"
                                 onChange={this.onInputChange}
-                                selected={this.state.userSelected}
                             >
                                 {
                                     this.state.users.map(user => 
