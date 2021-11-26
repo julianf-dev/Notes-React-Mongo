@@ -1,8 +1,8 @@
 # Notes with React @5, Mongo, Express and Note
 
-![](public/Capture.png)
+![](Capture.png)
 
-this is a simple single page application of Notes
+this is a simple single page application of NotesJS
 
 ### Installation (Manually)
 
