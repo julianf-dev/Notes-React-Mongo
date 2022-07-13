@@ -1,38 +1,50 @@
-# Notes with React @5, Mongo, Express and Note
+# Notes APP
 
-![](Capture.png)
+Notes APP 
 
-this is a simple single page application of NotesJS
+## Vista del proyecto 🚀
 
-### Installation (Manually)
+Mira **[ToDo-App]()** para conocer como funciona el proyecto.
 
-#### Requirements
+### Instalación 🔧
 
-* You need mongodb installed and running on your computer.
-
-### Environment variables
-
-In new file .env configure your environment variables
-
-MONGODB_URI = 
-PORT = 
-
-### Install a run the Server (In one console)
-
-```bash
-git clone https://github.com/julian1david/Notes-React-Mongo
-cd server
-npm install
-npm run dev
+```
+git clone 
 ```
 
-### Install a run the Server with React (In another console)
-
-In the root folder
-
-```bash
-npm install
-npm start
+```
+    npm install
+    yarn install
 ```
 
-Now you can visit: <a target="_blank" href="http://localhost:3000">http://localhost:3000</a>
+```
+    npm run dev
+    yarn run dev
+```
+
+## Construido con 🛠️
+
+- React
+- HTML
+- CSS
+- SASS
+- VITE
+- Express
+- Node
+- MongoDB
+
+## Contribuyendo 🖇️
+
+Cualquier contirbución al proyecto es bien recibida !
+
+## Autor ✒️
+
+- **Julian F** - [julian1f](https://github.com/julian1david)
+
+## Licencia 📄
+
+Este proyecto está bajo la Licencia (MIT) - mira el archivo [LICENSE](LICENSE) para detalles
+
+---
+
+Hecho con ❤️ por [julian1f](https://github.com/julian1david) 😊
