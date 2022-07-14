@@ -16,7 +16,7 @@ export const useUsers = () => {
 	}, []);
 
 	const getUsers = async () => {
-        const res = await axios.get('http://localhost:3030/api/users');
+		const res = await axios.get('http://localhost:3030/api/users');
 		setUsers(res.data);
 	};
 
@@ -25,7 +25,7 @@ export const useUsers = () => {
 			await axios.post('http://localhost:3030/api/users', {
 				username: userName,
 			});
-            getUsers()
+			getUsers();
 		} catch (e) {
 			console.log(e);
 		}
@@ -33,8 +33,7 @@ export const useUsers = () => {
 
 	const deleteUser = async id => {
 		await axios.delete('http://localhost:3030/api/users/' + id);
-        getUsers()
-
+		getUsers();
 	};
 
 	return {

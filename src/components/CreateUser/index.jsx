@@ -1,27 +1,20 @@
-import { useUsers } from "../../Hooks/useUsers";
+import { useUsers } from '../../Hooks/useUsers';
 
 export const CreateUser = () => {
-
-    const {
-        users,
-        userName,
-        setUserName,
-        addUser,
-        deleteUser,
-    } = useUsers()
+	const { users, userName, setUserName, addUser, deleteUser } = useUsers();
 
 	const onChangeUsername = e => {
-        setUserName(e.target.value)
+		setUserName(e.target.value);
 	};
 
 	const onSubmit = e => {
 		e.preventDefault();
-        addUser(userName)
-		setUserName('')
+		addUser(userName);
+		setUserName('');
 	};
 
-	const handleDelete =id => {
-		deleteUser(id)
+	const handleDelete = id => {
+		deleteUser(id);
 	};
 
 	return (

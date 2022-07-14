@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 export const NoteList = () => {
-
 	const [notes, setNotes] = useState([]);
 
 	useEffect(() => {
@@ -21,7 +20,7 @@ export const NoteList = () => {
 
 	const deleteNote = async id => {
 		await axios.delete('http://localhost:3030/api/notes/' + id);
-		getNotes()
+		getNotes();
 	};
 
 	return (

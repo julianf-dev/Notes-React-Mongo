@@ -1,6 +1,6 @@
 # Notes APP
 
-Notes APP 
+Notes APP
 
 ## Vista del proyecto 🚀
 
@@ -9,7 +9,7 @@ Mira **[ToDo-App]()** para conocer como funciona el proyecto.
 ### Instalación 🔧
 
 ```
-git clone 
+git clone
 ```
 
 ```

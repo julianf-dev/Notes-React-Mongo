@@ -1,13 +1,13 @@
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate } from 'react-router';
 import { useNotes } from '../../Hooks/useNotes';
 
 export const CreateNote = () => {
-	
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	const {
+		idUser,
 		users,
 		userSelected,
 		title,
@@ -23,16 +23,15 @@ export const CreateNote = () => {
 	} = useNotes();
 
 	const onSubmit = async e => {
-
 		e.preventDefault();
 		const newNote = {
-			title: title,
-			content: content,
-			date: date,
+			title,
+			content,
+			date,
 			author: userSelected,
 		};
 		if (editing) {
-			editNote(id);
+			editNote(idUser, newNote);
 		} else {
 			addData(newNote);
 		}
@@ -43,16 +42,15 @@ export const CreateNote = () => {
 		setUserSelected(e.target.value);
 	};
 	const onTitleChange = e => {
-		setTitle(e.target.value)
+		setTitle(e.target.value);
 	};
 	const onContentChange = e => {
-		setContent(e.target.value)
+		setContent(e.target.value);
 	};
 
 	const onChangeDate = date => {
 		setDate(date);
 	};
-
 
 	return (
 		<div className='col-md-6 offset-md-3'>

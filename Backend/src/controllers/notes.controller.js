@@ -31,14 +31,17 @@ notesCtrl.deleteNote = async (req, res) => {
 
 notesCtrl.updateNote = async (req, res) => {
 	const { title, content, author, date } = req.body;
-
-	const note_update = await Note.findByIdAndUpdate(req.params.id, {
-		title,
-		content,
-		author,
-		date,
-	});
-	res.json({ message: 'Note updated' });
+	try {
+		const note_update = await Note.findByIdAndUpdate(req.params.id, {
+			title,
+			content,
+			author,
+			date,
+		});
+		res.json({ message: 'Note updated' });
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 module.exports = notesCtrl;
